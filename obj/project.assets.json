@@ -1501,6 +1501,7 @@
     "net6.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameWorkCore >= 6.0.14",
+      "Microsoft.EntityFrameworkCore.Design >= 6.0.14",
       "Microsoft.EntityFrameworkCore.tools >= 6.0.14",
       "Microsoft.Extensions.Identity.Stores >= 6.0.14",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 6.0.0",
@@ -1550,6 +1551,12 @@
             "version": "[12.0.0, )"
           },
           "Microsoft.AspNetCore.Identity.EntityFrameWorkCore": {
+            "target": "Package",
+            "version": "[6.0.14, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.14, )"
           },
