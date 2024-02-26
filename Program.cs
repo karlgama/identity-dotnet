@@ -1,5 +1,6 @@
 using identity.Data;
 using identity.Data.models;
+using identity.services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,8 +18,8 @@ var connString = builder.Configuration.GetConnectionString
 
 builder.Services.AddDbContext<UserDbContext>(opts =>
 {
-    // opts.UseMySql(connString, ServerVersion.AutoDetect(connString));
-    opts.UseNpgsql(connString);
+    opts.UseMySql(connString, ServerVersion.AutoDetect(connString));
+    // opts.UseNpgsql(connString);
 
 });
 
@@ -27,6 +28,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<UserDbContext>()
                 .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
