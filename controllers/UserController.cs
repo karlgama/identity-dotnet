@@ -28,8 +28,10 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Login(LoginUserDTO)
+    public async Task<IActionResult> Login(LoginUserDTO dto)
     {
-        _userService.Login();
+        await _userService.Login(dto);
+        return Ok("ok");
+
     }
 }
